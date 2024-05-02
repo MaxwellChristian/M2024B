@@ -30,11 +30,11 @@ public class TipCalculator extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_tip_calculator);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+//            return insets;
+//        });
 
         // bind the controls to the references
         etPrice = findViewById(R.id.etPrice);
@@ -62,7 +62,10 @@ public class TipCalculator extends AppCompatActivity {
 
             Intent receiptIntent = new Intent(TipCalculator.this, ShowReceipt.class) ;
 
-            receiptIntent.putExtra("key_total_payable", tvTotal.getText().toString());
+            // receiptIntent.putExtra("key_total_payable", tvTotal.getText().toString());
+            receiptIntent.putExtra(
+                    getResources().getString(R.string.key_total_payable),
+                    tvTotal.getText().toString());
 
             startActivity(receiptIntent);
 

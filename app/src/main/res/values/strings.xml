@@ -3,4 +3,8 @@
     <string name="key_price">Price</string>
     <string name="key_tip">Tip %</string>
     <string name="key_tax" translatable="false">Tax</string>
+
+<!--    key for intent bundles-->
+    <string name="key_total_payable" translatable="false">paid_amount</string>
+
 </resources>
