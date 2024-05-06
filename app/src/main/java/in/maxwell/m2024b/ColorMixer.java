@@ -2,7 +2,9 @@ package in.maxwell.m2024b;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -27,6 +29,9 @@ public class ColorMixer extends AppCompatActivity implements SeekBar.OnSeekBarCh
 
     TextView tvColor;
 
+    Switch swShowColorCode;
+    TextView tvColorCode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +48,13 @@ public class ColorMixer extends AppCompatActivity implements SeekBar.OnSeekBarCh
         sbGreen = findViewById(R.id.sbGreen);
         sbBlue = findViewById(R.id.sbBlue);
 
+        redPart = sbRed.getProgress();
+        greenPart = sbGreen.getProgress();
+        bluePart = sbBlue.getProgress();
+
+        int mixedColor = Color.rgb(redPart, greenPart, bluePart);
+        tvColor.setBackgroundColor(mixedColor);
+
         tvRedValue.setText(sbRed.getProgress()+"");
         tvGreenValue.setText(sbGreen.getProgress()+"");
         tvBlueValue.setText(sbBlue.getProgress()+"");
@@ -51,6 +63,26 @@ public class ColorMixer extends AppCompatActivity implements SeekBar.OnSeekBarCh
         sbGreen.setOnSeekBarChangeListener(ColorMixer.this);
         sbBlue.setOnSeekBarChangeListener(ColorMixer.this);
 
+        tvColorCode = findViewById(R.id.tvColorCode);
+        swShowColorCode = findViewById(R.id.swShowColorCode);
+        swShowColorCode.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                showCodeHexCode();
+                tvColorCode.setVisibility(View.VISIBLE);
+            }
+            else {
+                tvColorCode.setVisibility(View.GONE);
+            }
+        });
+
+    }
+
+    private void showCodeHexCode() {
+        tvColorCode.setText("#"
+                + String.format("%02x", redPart)
+                + String.format("%02x", greenPart)
+                + String.format("%02x", bluePart)
+        );
     }
 
     @Override
@@ -74,6 +106,7 @@ public class ColorMixer extends AppCompatActivity implements SeekBar.OnSeekBarCh
         int mixedColor = Color.rgb(redPart, greenPart, bluePart);
         tvColor.setBackgroundColor(mixedColor);
 
+        showCodeHexCode();
     }
 
     @Override

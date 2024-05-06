@@ -45,7 +45,7 @@
                 android:layout_weight="1"
                 android:max="255"
                 android:min="0"
-                android:progress="100" />
+                android:progress="9" />
 
             <TextView
                 android:id="@+id/tvRedValue"
@@ -111,7 +111,7 @@
                 android:layout_weight="1"
                 android:max="255"
                 android:min="0"
-                android:progress="100" />
+                android:progress="5" />
 
             <TextView
                 android:id="@+id/tvBlueValue"
