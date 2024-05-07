@@ -1,5 +1,6 @@
 package in.maxwell.m2024b;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -92,10 +93,12 @@ public class ColorMixer extends AppCompatActivity implements SeekBar.OnSeekBarCh
 
         if (item.getItemId() == R.id.miSaveColor) {
             Log.i("ColorMixer", "Save color clicked");
+            saveColor();
         }
 
         if (item.getItemId() == R.id.miShowColors) {
             Log.d("ColorMixer", "Show color clicked");
+            showSavedColor();
         }
 
         if (item.getItemId() == R.id.miRemoveColor) {
@@ -107,6 +110,40 @@ public class ColorMixer extends AppCompatActivity implements SeekBar.OnSeekBarCh
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showSavedColor() {
+
+        SharedPreferences spColorPreferences =
+                getSharedPreferences("color_preferences", MODE_PRIVATE);
+        Log.i("ColorMixer", "Preferences loaded (color preferences)");
+
+        redPart = spColorPreferences.getInt("red", 0);
+        greenPart = spColorPreferences.getInt("green", 0);
+        bluePart = spColorPreferences.getInt("blue", 0);
+
+        Log.i("ColorMixer", "Color fetched (from preferences)"
+                + " R: " + redPart
+                + " G: " + greenPart
+                + " B: " + bluePart );
+
+    }
+
+    private void saveColor() {
+
+        SharedPreferences spColorPreferences =
+                getSharedPreferences("color_preferences", MODE_PRIVATE);
+        Log.i("ColorMixer", "Preferences loaded (color preferences)");
+
+        spColorPreferences
+                .edit()
+                    .putInt("red", redPart)
+                    .putInt("green", greenPart)
+                    .putInt("blue", bluePart)
+                .apply();
+
+        Log.i("ColorMixer", "Color saved (in preferences)");
+
     }
 
     private void showCodeHexCode() {
