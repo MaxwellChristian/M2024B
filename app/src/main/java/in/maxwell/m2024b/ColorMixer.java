@@ -2,16 +2,18 @@ package in.maxwell.m2024b;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class ColorMixer extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
 
@@ -75,6 +77,36 @@ public class ColorMixer extends AppCompatActivity implements SeekBar.OnSeekBarCh
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_color_mixer, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.miSaveColor) {
+            Log.i("ColorMixer", "Save color clicked");
+        }
+
+        if (item.getItemId() == R.id.miShowColors) {
+            Log.d("ColorMixer", "Show color clicked");
+        }
+
+        if (item.getItemId() == R.id.miRemoveColor) {
+            Log.w("ColorMixer", "Remove color clicked");
+
+            Toast toast = Toast.makeText(ColorMixer.this, "Color removed", Toast.LENGTH_SHORT);
+            toast.show();
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void showCodeHexCode() {

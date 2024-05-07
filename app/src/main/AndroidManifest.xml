@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.M2024B"
         tools:targetApi="31">
+
         <activity
             android:name=".ColorMixer"
             android:exported="true">
@@ -35,12 +36,12 @@
         </activity>
         <activity
             android:name=".ShowMessage"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.M2024B"></activity>
+            android:theme="@style/Theme.M2024B" />
     </application>
 
 </manifest>
