@@ -1,11 +1,14 @@
 package in.maxwell.m2024b.student_using_database;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -14,6 +17,7 @@ import in.maxwell.m2024b.R;
 public class StudentActivity extends AppCompatActivity {
 
     RecyclerView rvStudentList;
+    FloatingActionButton fabAddStudent;
 
     private StudentAdapter studentAdapter;
 
@@ -25,6 +29,9 @@ public class StudentActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_student);
         Log.d("StudentActivity", "onCreate: content loaded.");
+
+        fabAddStudent = findViewById(R.id.fabAddStudent);
+        fabAddStudent.setOnClickListener(v -> addStudentRecord());
 
         rvStudentList = findViewById(R.id.rvStudentList);
         LinearLayoutManager layoutManager = new LinearLayoutManager(StudentActivity.this);
@@ -41,6 +48,13 @@ public class StudentActivity extends AppCompatActivity {
 
         studentAdapter = new StudentAdapter(alStudents);
         rvStudentList.setAdapter(studentAdapter);
+
+    }
+
+    private void addStudentRecord() {
+
+        Intent addStudentIntent =  new Intent(StudentActivity.this, AddStudentActivity.class);
+        startActivity(addStudentIntent);
 
     }
 }

@@ -85,7 +85,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return alStudents;
     }
 
-    public void addStudent(Student student) {
+    public long addStudent(Student student) {
 
         // create a reference to the database (writable)
         SQLiteDatabase db = getWritableDatabase();
@@ -97,7 +97,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put("studentLastName", student.getStudentLastName());
 
         // store the key-value pair to the table
-        db.insert("tblStudents", null, values);
+        return db.insert("tblStudents", null, values);
     }
 }
 

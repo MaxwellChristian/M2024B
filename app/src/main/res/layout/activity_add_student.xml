@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"  android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".student_using_database.AddStudentActivity">
+
+    <EditText
+        android:id="@+id/etStudentID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Student ID" />
+
+    <EditText
+        android:id="@+id/etStudentFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="First Name" />
+
+    <EditText
+        android:id="@+id/etStudentLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Last Name" />
+
+    <Button
+        android:id="@+id/btnAddStudentRecord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Student" />
+</LinearLayout>
