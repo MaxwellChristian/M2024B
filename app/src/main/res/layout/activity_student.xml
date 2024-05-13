@@ -16,13 +16,12 @@
         android:layout_marginBottom="40dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="@+id/rvStudentList"
-        app:layout_constraintEnd_toEndOf="@+id/rvStudentList"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:layout_constraintEnd_toEndOf="@+id/rvStudentList" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvStudentList"
-        android:layout_width="379dp"
-        android:layout_height="859dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
