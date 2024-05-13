@@ -38,6 +38,9 @@ public class ColorMixer extends AppCompatActivity implements SeekBar.OnSeekBarCh
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        showSavedColor();
+
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_color_mixer);
 
@@ -51,9 +54,13 @@ public class ColorMixer extends AppCompatActivity implements SeekBar.OnSeekBarCh
         sbGreen = findViewById(R.id.sbGreen);
         sbBlue = findViewById(R.id.sbBlue);
 
-        redPart = sbRed.getProgress();
-        greenPart = sbGreen.getProgress();
-        bluePart = sbBlue.getProgress();
+//        redPart = sbRed.getProgress();
+//        greenPart = sbGreen.getProgress();
+//        bluePart = sbBlue.getProgress();
+
+        sbRed.setProgress(redPart);
+        sbGreen.setProgress(greenPart);
+        sbBlue.setProgress(bluePart);
 
         int mixedColor = Color.rgb(redPart, greenPart, bluePart);
         tvColor.setBackgroundColor(mixedColor);
