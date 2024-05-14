@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -22,6 +23,8 @@ public class IntentExample extends AppCompatActivity {
 
     Button btnDial;
     Button btnCall;
+    Button btnUrl;
+    Button btnShowDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,43 @@ public class IntentExample extends AppCompatActivity {
                 requestPermissions(new String[] { permission }, 12345);
             }
 
+
+        });
+
+        btnUrl = findViewById(R.id.btnUrl);
+        btnUrl.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.google.com"));
+            startActivity(intent);
+        });
+
+        // show alert dialog
+        btnShowDialog = findViewById(R.id.btnShowDialog);
+        btnShowDialog.setOnClickListener(v -> {
+
+            AlertDialog alertDialog = new AlertDialog
+                    .Builder(this)
+                    .create();
+
+            alertDialog.setCancelable(false);
+
+            alertDialog.setTitle("Confirmation");
+            alertDialog.setMessage("Are you sure ?");
+
+            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Sure", (dialog, which) -> {
+                Toast.makeText(this, "You said: Yes", Toast.LENGTH_SHORT).show();
+            });
+
+            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Not", (dialog, which) -> {
+                Toast.makeText(this, "You said: NO", Toast.LENGTH_SHORT).show();
+            });
+
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "NA", (dialog, which) -> {
+                Toast.makeText(this, "You said: May be", Toast.LENGTH_SHORT).show();
+            });
+
+            alertDialog.show();
 
         });
 
