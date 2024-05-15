@@ -99,6 +99,22 @@ public class DBHelper extends SQLiteOpenHelper {
         // store the key-value pair to the table
         return db.insert("tblStudents", null, values);
     }
+
+    public void removeStudent(Student selectedStudent) {
+
+        String query = "DELETE FROM tblStudents " +
+                "WHERE studentID = " + selectedStudent.getStudentId();
+
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL(query);
+
+    }
+
+    public void editStudent(Student studentToEdit) {
+
+        // have an update query to update the record in the table
+
+    }
 }
 
 

@@ -1,12 +1,24 @@
 package in.maxwell.m2024b.student_using_database;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
 
     String studentId;
     String studentFirstName;
     String studentLastName;
     int gender;
     String city;
+
+    boolean isUpdated;
+
+    public boolean isUpdated() {
+        return isUpdated;
+    }
+
+    public void setUpdated(boolean updated) {
+        isUpdated = updated;
+    }
 
     public Student() {
     }
@@ -17,6 +29,7 @@ public class Student {
         this.studentLastName = studentLastName;
         this.gender = gender;
         this.city = city;
+        isUpdated = false;
     }
 
     public String getStudentId() {
