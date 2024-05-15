@@ -1,5 +1,6 @@
 package in.maxwell.m2024b.person_demo;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,12 @@ import in.maxwell.m2024b.R;
 
 public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonViewHolder> {
     private final ArrayList<Person> personList;
+
+    public Person getSelectedPerson() {
+        return selectedPerson;
+    }
+
+    private Person selectedPerson;
 
     public PersonAdapter(ArrayList<Person> personList) {
         this.personList = personList;
@@ -33,11 +40,34 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.PersonView
         holder.tvFirstName.setText(personList.get(position).getFirstName());
         holder.tvLastName.setText(personList.get(position).getLastName());
 
+        holder.itemView.setOnLongClickListener(v -> {
+
+            Log.d("Person Adapter", "in long click");
+
+            selectedPerson = personList.get(position);
+
+            // MUST return FALSE
+            // (to see the context menu)
+            return false;
+        });
+
     }
 
     @Override
     public int getItemCount() {
         return personList.size();
+    }
+
+    public void removePerson(Person personToRemove) {
+
+        int positionRemoved = personList.indexOf(personToRemove);
+
+        personList.remove(personToRemove);
+
+        // notifyDataSetChanged();
+        notifyItemRemoved(positionRemoved);
+
+        Log.d("After remove", "Total persons: " + personList.size());
     }
 
     public static class PersonViewHolder extends RecyclerView.ViewHolder {

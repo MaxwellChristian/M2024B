@@ -72,7 +72,7 @@ public class IntentExample extends AppCompatActivity {
         btnUrl.setOnClickListener(v -> {
             Intent intent = new Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://www.google.com"));
+                    Uri.parse("http://www.google.com"));
             startActivity(intent);
         });
 
