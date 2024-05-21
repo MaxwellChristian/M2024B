@@ -20,6 +20,24 @@
         android:theme="@style/Theme.M2024B"
         tools:targetApi="31">
         <activity
+            android:name=".WebViewDemo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".VideoDemo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ShowDateTime"
             android:exported="true">
             <intent-filter>
