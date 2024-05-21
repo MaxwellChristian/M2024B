@@ -27,7 +27,7 @@ public class WebViewDemo extends AppCompatActivity {
         btnShowHTMLData.setOnClickListener(v -> {
 
             String data = "";
-            data = "<HTML><BODY><H1>Hello World</H1></BODY></HTML>";
+            data = "<HTML><BODY><H1>Hello World</H1>     </BODY></HTML>";
 
 //            webView1.loadData(data, "text/html", "UTF-8");
             webView1.getSettings().setJavaScriptEnabled(false);
@@ -35,7 +35,6 @@ public class WebViewDemo extends AppCompatActivity {
             webView1.loadUrl("https://www.saskpolytech.ca");
 
         });
-
 
     }
 }
