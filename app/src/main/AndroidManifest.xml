@@ -23,6 +23,15 @@
         android:theme="@style/Theme.M2024B"
         tools:targetApi="31">
         <activity
+            android:name=".activity_for_result.ActivityForResultDemo"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".notification_emo.NotificationDemo"
             android:exported="true">
             <intent-filter>
