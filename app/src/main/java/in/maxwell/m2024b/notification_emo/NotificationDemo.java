@@ -42,6 +42,9 @@ public class NotificationDemo extends AppCompatActivity {
     private void showNotification() {
 
         Intent nextIntent = new Intent(NotificationDemo.this, ShowDateTime.class);
+        nextIntent.putExtra("notification_title", "My notification");
+        nextIntent.putExtra("notification_text", "Hello World!");
+
         PendingIntent pendingIntent = PendingIntent.getActivity(NotificationDemo.this, 1, nextIntent, PendingIntent.FLAG_IMMUTABLE);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, MY_NOTIFICATION_CHANNEL_1);
@@ -51,7 +54,6 @@ public class NotificationDemo extends AppCompatActivity {
         builder.setSmallIcon(R.drawable.ic_launcher_background);
         builder.setAutoCancel(true);
         builder.setContentIntent(pendingIntent);
-
 
         NotificationChannel notificationChannel = new NotificationChannel(MY_NOTIFICATION_CHANNEL_1, "My notification", NotificationManager.IMPORTANCE_DEFAULT);
         notificationManager.createNotificationChannel(notificationChannel);
