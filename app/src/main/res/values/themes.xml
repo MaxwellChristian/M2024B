@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.M2024B" parent="Theme.AppCompat.Light" />"
-<!--    <style name="Theme.M2024B" parent="Theme.AppCompat.Light.NoActionBar" />"-->
+    <style name="Theme.M2024B" parent="Theme.AppCompat.Light" />
+
+    <style name="Theme.M2024B.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.M2024B.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.M2024B.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />"
+    <!--    <style name="Theme.M2024B" parent="Theme.AppCompat.Light.NoActionBar" />"-->
 </resources>
